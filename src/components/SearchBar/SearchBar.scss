@@ -7,7 +7,7 @@
 
 .searchBar {
   display: flex; 
-  height: 6rem;
+  min-height: 6rem;
   width: 60%;
   min-width: 50rem;
   padding: 0 .5rem;
@@ -37,7 +37,7 @@
   }
 
   &__btn {
-    height: 100%;
+    min-height: inherit;
     background-color: transparent;
     border: none;
     align-self: center;
@@ -47,7 +47,7 @@
     &:hover {
       transform: scale(1.1);
     }
-    
+
     svg {
       height: 3rem;
       width: auto;
