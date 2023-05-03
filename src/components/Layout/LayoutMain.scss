@@ -1,0 +1,23 @@
+.layout {
+  &__background {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 100vh;
+    background-color: var(--background-grey-primary);
+    padding: var(--padding-sm) 0 var(--padding-sm) var(--padding-md);
+    margin-right: 15%;
+    
+    &--landing {
+      justify-content: center;
+      padding: var(--padding-sm) var(--padding-md);
+      margin: 0;
+    }
+  }
+}
