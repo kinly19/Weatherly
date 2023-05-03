@@ -1,0 +1,36 @@
+/* 
+  landing
+    landing__heading
+    landing__content
+*/
+
+.landing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 7rem;
+  font-family: var(--landing-font-primary);
+  color: var(--font-orange-secondary);
+
+  &__heading {
+    margin-bottom: 7rem;
+    
+    h1 {
+      font-size: var(--fs-landing-header);
+      color: var(--landing-orange-primary);
+      font-weight: var(--fw-c400);
+    }
+
+    h2 {
+      font-size: var(--fs-landing-subheader);
+      font-weight: var(--fw-c300);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    font-weight: var(--fw-c300);
+  }
+}
