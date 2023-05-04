@@ -1,0 +1,10 @@
+.icon-tile {
+  min-height: 4rem;
+
+  // Define height of img via its parent
+  img {
+    height: inherit;
+    min-height: inherit;
+    min-width: inherit;
+  }
+}
