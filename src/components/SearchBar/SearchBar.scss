@@ -21,10 +21,10 @@
 
   &__input {
     height: 6rem;
+    width: 100%;
     border: 0;
     outline: none;
     background: transparent;
-    flex-grow: 1;
     padding: 1rem 0;
     font-family: var(--font-orange-primary);
     font-size: var(--fs-300);
