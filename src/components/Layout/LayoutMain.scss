@@ -11,13 +11,21 @@
     justify-content: flex-start;
     min-height: 100vh;
     background-color: var(--background-grey-primary);
-    padding: var(--padding-sm) 0 var(--padding-sm) var(--padding-md);
+    padding: var(--padding-xsm) 0;
     margin-right: 15%;
     
     &--landing {
       justify-content: center;
       padding: var(--padding-sm) var(--padding-md);
       margin: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 48em) {
+  .layout {
+    &__container {
+      margin-right: 0;
     }
   }
 }
