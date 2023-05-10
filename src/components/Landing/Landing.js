@@ -7,7 +7,7 @@ import './Landing.scss';
 
 const Landing = () => {
   return (
-    <LayoutMain className={"layout__container--landing"} backgroundImage={landingBkground}>
+    <LayoutMain class={"layout__container--landing"} backgroundImage={landingBkground}>
       <section className="landing">
         <header className="landing__heading">
           <h1>Weatherly</h1>
