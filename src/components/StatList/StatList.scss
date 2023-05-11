@@ -1,0 +1,42 @@
+/*
+  stat
+    stat__main
+      stat__list
+    stat__footer
+*/
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: var(--fs-200);
+  color: var(--font-orange-primary);
+
+  &__main {
+    display: flex;
+    gap: 3px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    flex: 1;
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+    background-color: var(--background-grey-tertiary);
+  }
+}
+
+@media screen and (max-width: 53.125em) {
+  .stat {
+    &__main {
+      flex-direction: column;
+    }
+  }
+}
