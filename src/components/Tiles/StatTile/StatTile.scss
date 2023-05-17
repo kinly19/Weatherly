@@ -1,0 +1,34 @@
+/*
+  stat-tile
+    stat-tile__label
+    stat-tile__value
+*/
+
+.stat-tile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 5rem;
+  padding: 0 20%;
+  background-color: var(--background-grey-secondary);
+
+  &--pd-sm {
+    padding: 0 var(--padding-sm);
+  }
+
+  &--center {
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  &__value {
+    color: var(--font-orange-secondary);
+    font-weight: var(--fw-300);
+  }
+}
+
+@media screen and (max-width: 53.125em) {
+  .stat-tile {
+    padding: 0 var(--padding-sm);
+  }
+}
