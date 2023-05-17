@@ -55,11 +55,11 @@ const StatList = (props) => {
     if ((key === "Snow" && value === "0 %") || (key === "Snowdepth" && value === "0 CM")) {
       return null;
     }
-    return <StatTile key={index} class={"stat-tile--center"} title={key} value={value} />;
+    return <StatTile key={index} className={"stat-tile--center"} title={key} value={value} />;
   });
 
   return (
-    <section className={props.class ? `stat ${props.class}` : "stat"}>
+    <section className={props.className ? `stat ${props.className}` : "stat"}>
       <div className="stat__main">
         <ul className="stat__list">{columnContent1}</ul>
         <ul className="stat__list">{columnContent2}</ul>
