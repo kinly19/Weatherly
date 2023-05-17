@@ -1,0 +1,82 @@
+/*
+  carousel
+    carousel__wrapper
+      carousel__content
+    carousel__btn-left
+    carousel__btn-right
+*/
+
+.carousel {
+  position: relative;
+  height: 100%;
+  padding: 0 5rem;
+
+  &__wrapper {
+    overflow-x: clip;
+    height: 100%;
+  }
+
+  &__content {
+    display: flex;
+    height: 100%;
+    transition: all .25s linear;
+  }
+
+  // Select all direct child elements
+  &__content > * {
+    flex-shrink: 0;
+    flex-grow: 1;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  &__btn-left,
+  &__btn-right {
+    background-color: transparent;
+    border: none;
+    height: 5rem;
+    width: 5rem;
+    position: absolute;
+    top: 50%;
+    color: var(--font-orange-primary);
+
+    svg {
+      height: 100%;
+      width: auto;
+
+      &:hover {
+        transform: scale(1.15);
+      }
+
+      &:active {
+        transform: translate(0);
+      }
+    }
+  }
+
+  &__btn-left {
+    left: -5rem;
+    transform: translateY(-50%);
+  }
+
+  &__btn-right {
+    right: -5rem;
+    transform: translateY(-50%);
+  }
+}
+
+.show-1 > * {
+  width: calc(100% / 1);
+}
+
+.show-2 > * {
+  width: calc(100% / 2); 
+}
+
+.show-3 > * {
+  width: calc(100% / 3);
+}
+
+.show-4 > * {
+  width: calc(100% / 4);
+}
