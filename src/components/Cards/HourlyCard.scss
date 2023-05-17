@@ -1,0 +1,39 @@
+/*
+  hourly-card
+    hourly-card__wrapper
+      hourly-card__header
+        hour-card__header-time
+        hour-card__header-description
+      hourly-card__list
+*/
+
+.hourly-card {
+  list-style: none;
+  font-size: var(--fs-150);
+  color: var(--font-orange-primary);
+
+  &__wrapper {
+    border-radius: 7px;
+    background-color: var(--background-grey-primary);
+  }
+
+  &__header {
+    padding: 2rem var(--padding-sm);
+  }
+
+  &__header-time {
+    font-size: var(--fs-400);
+    font-weight: var(--fw-400);
+    margin-bottom: 1rem;
+  }
+
+  &__header-description {
+    font-weight: var(--fw-300);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+}
