@@ -32,7 +32,7 @@ const HourlyCard = (props) => {
             return (
               <StatTile
                 key={index}
-                class={"stat-tile--pd-sm"}
+                className={"stat-tile--pd-sm"}
                 title={tile.title}
                 value={tile.value}
               />
