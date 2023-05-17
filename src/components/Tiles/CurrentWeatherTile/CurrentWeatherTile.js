@@ -8,7 +8,7 @@ const CurrentWeatherTile = (props) => {
   const { dateFull: date } = useDate(props.datetimeEpoch);
 
   return (
-    <section className={props.class ? `current-info ${props.class}` : 'current-info'}>
+    <section className={props.className ? `current-info ${props.className}` : 'current-info'}>
       <p className="current-info__location">{props.resolvedAddress}</p>
       <article className="current-info__tile">
         <IconTile 
