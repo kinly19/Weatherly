@@ -16,7 +16,7 @@ const SearchBar = (props) => {
 
   return (
     <form
-      className={props.class ? `searchBar ${props.class}` : "searchBar"}
+      className={props.className ? `searchBar ${props.className}` : "searchBar"}
       onSubmit={(e) => {
         props.handleSubmit(e, query);
         clearInputHandler();
