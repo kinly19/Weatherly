@@ -9,7 +9,7 @@
 .carousel {
   position: relative;
   height: 100%;
-  padding: 0 5rem;
+  padding: 0 5%;
 
   &__wrapper {
     overflow-x: clip;
@@ -55,12 +55,12 @@
   }
 
   &__btn-left {
-    left: -5rem;
+    left: -3rem;
     transform: translateY(-50%);
   }
 
   &__btn-right {
-    right: -5rem;
+    right: -3rem;
     transform: translateY(-50%);
   }
 }
