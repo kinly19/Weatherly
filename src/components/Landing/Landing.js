@@ -5,7 +5,7 @@ import SearchBar from '../SearchBar/SearchBar';
 import landingBkground from '../../assets/Img/Landing.jpg';
 import './Landing.scss';
 
-const Landing = () => {
+const Landing = (props) => {
   return (
     <LayoutMain className={"layout__container--landing"} backgroundImage={landingBkground}>
       <section className="landing">
@@ -16,7 +16,7 @@ const Landing = () => {
 
         <article className="landing__content">
           <DateTimeTile />
-          <SearchBar />
+          <SearchBar handleSubmit={props.handleSubmit}/>
         </article>
       </section>
     </LayoutMain>
