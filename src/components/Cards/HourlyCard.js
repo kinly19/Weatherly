@@ -4,27 +4,27 @@ import './HourlyCard.scss';
 
 const HourlyCard = (props) => {
 
-  const { time } = useDate(props.datetimeEpoch);
+  const formattedTimeString = props.datetime.slice(0, 5);
 
   const statTiles = [
     { title: "Hour", value: props.datetimeEpoch},
-    { title: "Conditions", value: props.conditions},
-    { title: "Rain", value: props.precipprob },
-    { title: "Temp", value: props.temp },
-    { title: "Feels like", value: props.feelslike },
-    { title: "Humidity", value: props.humidity },
-    { title: "Cloud cover", value: props.cloudcover },
-    { title: "Wind", value: props.windspeed },
-    { title: "Direction", value: props.winddir },
-    { title: "Visibility", value: props.visibility },
+    { title: "Conditions", value: props.conditions },
+    { title: "Rain", value: props.rain},
+    { title: "Temp", value: props.temp},
+    { title: "Feels like", value: props.feelslike},
+    { title: "Humidity", value: props.humidity},
+    { title: "Cloud cover", value: props.cloudcover},
+    { title: "Wind", value: props.wind},
+    { title: "Direction", value: props.direction},
+    { title: "Visibility", value: props.visibility},
   ];
 
   return (
     <li className="hourly-card">
       <div className="hourly-card__wrapper">
         <div className="hourly-card__header">
-          <p className="hourly-card__header-time">{time}</p>
-          <p className="hourly-card__header-description">{statTiles[1].value}</p>
+          <p className="hourly-card__header-time">{formattedTimeString}</p>
+          <p className="hourly-card__header-description">{props.condition}</p>
         </div>
 
         <ul className="hourly-card__list">
