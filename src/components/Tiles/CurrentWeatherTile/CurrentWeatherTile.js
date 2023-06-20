@@ -1,6 +1,5 @@
 import useDate from '../../../hooks/useDate';
 import IconTile from '../IconTile/IconTile';
-// import {Clear, ClearNight} from '../../../assets/Svg/Svg.js';
 import './CurrentWeatherTile.scss';
   
 const CurrentWeatherTile = (props) => {
@@ -8,15 +7,16 @@ const CurrentWeatherTile = (props) => {
   const { dateFull: date } = useDate(props.datetimeEpoch);
 
   return (
-    <section className={props.className ? `current-info ${props.className}` : 'current-info'}>
+    <section
+      className={
+        props.className ? `current-info ${props.className}` : "current-info"
+      }
+    >
       <p className="current-info__location">{props.resolvedAddress}</p>
       <article className="current-info__tile">
-        <IconTile 
-          iconSrc={props.icon} 
-          height={"12rem"} 
-        />
-        <p className="current-info__tile-temp">{`${props.temp} C`}</p>
-        <p className="current-info__tile-description">{`${props.conditions}`}</p>
+        <IconTile height={"15rem"} iconSrc={props.icon} />
+        <p className="current-info__tile-temp">{`${props.temp}`}</p>
+        <p className="current-info__tile-description">{`${props.condition}`}</p>
       </article>
       <p className="current-info__date">{date}</p>
     </section>
