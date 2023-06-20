@@ -7,7 +7,6 @@ import './Accordion.scss';
 const Accordion = (props) => {
   const [toggle, setToggle] = useState(false);
   const { dateShort: date } = useDate(props.datetimeEpoch);
-  const degreeSymbol = "\u00B0";
 
   const toggleAccordionHandler = () => {
     console.log("Toggle accordion")
@@ -25,12 +24,12 @@ const Accordion = (props) => {
         <div className="accordion__header-tiles">
           <div className="accordion__tile">
             <p className="accordion__tile-label">Temp</p>
-            <p className="accordion__tile-value">{`${props.temp} ${degreeSymbol}C`}</p>
+            <p className="accordion__tile-value">{props.temp}</p>
           </div>
 
           <div className="accordion__tile">
             <p className="accordion__tile-label">Rain</p>
-            <p className="accordion__tile-value">{`${props.rain} %`}</p>
+            <p className="accordion__tile-value">{props.rain}</p>
           </div>
 
           <div className="accordion__tile">
