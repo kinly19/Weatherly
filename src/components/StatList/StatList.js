@@ -3,25 +3,23 @@ import './StatList.scss';
 
 const StatList = (props) => {
   
-  const degreeSymbol = "\u00B0";
   const weatherStats = {
-    "Temp": `${props.temp} ${degreeSymbol}C`,
-    "Min Temp": `${props.tempmin} ${degreeSymbol}C`,
-    "Feels Like": `${props.feelslike} ${degreeSymbol}C`,
-    "Cloud Cover": `${props.cloudcover} %`,
-    "Humidity": `${props.humidity} %`,
-    "Dew": `${props.dew} ${degreeSymbol}C`,
+    "Temp": props.temp,
+    "Min Temp": props.mintemp,
+    "Feels Like": props.feelslike,
+    "Cloud Cover": props.cloudcover,
+    "Humidity": props.humidity,
+    "Dew": props.dew,
     "UV Index": props.uvindex,
-    "Visibility": `${props.visibility} %`,
-    "Wind": `${props.windspeed} Kph`,
-    "Direction": `${props.winddir} Deg`,
+    "Visibility": props.visibility,
+    "Wind": props.wind,
+    "Direction": props.direction,
     "Sunrise": props.sunrise,
     "Sunrset": props.sunset,
-    "Chance Of Rain": `${props.precipprob} %`,
-    "Snow": `${props.snow} %`,
-    "Snowdepth": `${props.snowdepth} CM`,
+    "Chance Of Rain": props.rain,
+    "Snow": props.snow,
+    "Snowdepth": props.snowdepth,
     "Moonphase": props.moonphase,
-    // add id
   };
 
   // Concise
