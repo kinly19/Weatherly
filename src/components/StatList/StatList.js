@@ -41,11 +41,11 @@ const StatList = (props) => {
   const weatherStatEntries = Object.entries(weatherStats);
 
   const columnContent1 = weatherStatEntries.slice(0, 6).map(([key, value], index) => {
-    return <StatTile key={index} title={key} value={value} />;
+    return <StatTile key={index} className={props.statTileClassName} title={key} value={value} />;
   });
 
   const columnContent2 = weatherStatEntries.slice(6, 12).map(([key, value], index) => {
-    return <StatTile key={index} title={key} value={value} />;
+    return <StatTile key={index} className={props.statTileClassName} title={key} value={value} />;
   });
 
   const footerContent = weatherStatEntries.slice(12).map(([key, value], index) => {
