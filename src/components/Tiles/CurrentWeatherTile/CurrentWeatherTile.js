@@ -14,7 +14,7 @@ const CurrentWeatherTile = (props) => {
     >
       <p className="current-info__location">{props.resolvedAddress}</p>
       <article className="current-info__tile">
-        <IconTile height={"15rem"} iconSrc={props.icon} />
+        <IconTile height={"12rem"} iconSrc={props.icon} />
         <p className="current-info__tile-temp">{`${props.temp}`}</p>
         <p className="current-info__tile-description">{`${props.condition}`}</p>
       </article>
