@@ -24,7 +24,7 @@ const useDate = (timeStamp) => {
   const dateShort = date.toLocaleDateString('default', shortDateOptions).replace(',', '');
   const time = date.toLocaleTimeString('default', timeOptions);
 
-  return { dateFull, dateShort, time};
+  return { date, dateFull, dateShort, time};
 };
 
 export default useDate;
