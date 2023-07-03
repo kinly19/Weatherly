@@ -1,0 +1,49 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  visibility: visible;
+  opacity: 1;
+  background-color: rgba(17, 17, 17, 0.904);
+  backdrop-filter: blur(5px);
+  transition: opacity ease-in .20s;
+  padding: 5%;
+
+  &--hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__toggle {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  &__toggle-btn {
+    background-color: transparent;
+    border: none;
+    height: auto;
+    width: 4rem;
+    color: var(--font-orange-secondary);
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    & svg {
+      height: auto;
+      width: 100%;
+    }
+  }
+}
