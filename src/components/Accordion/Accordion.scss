@@ -94,6 +94,7 @@ accordion
     max-height: 0;
     opacity: 0;
     visibility: hidden;
+    overflow: hidden;
     padding: 0;
     background-color: var(--background-grey-secondary);
     transition: max-height 1s cubic-bezier(0, 1, 0, 1), opacity ease-in .30s;
