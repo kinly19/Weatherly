@@ -33,7 +33,7 @@ const Accordion = (props) => {
           </div>
 
           <div className="accordion__tile">
-            <IconTile height={"5rem"} iconSrc={props.icon} />
+            <IconTile iconSrc={props.icon} />
           </div>
         </div>
 
