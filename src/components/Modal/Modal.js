@@ -1,10 +1,10 @@
 import { useState, useEffect, forwardRef, useImperativeHandle } from 'react';
+import ReactDOM from 'react-dom';
 import { AiOutlineClose } from 'react-icons/ai';
 import './Modal.scss'; 
 
 // ForwardsRef allows us to tell react when calling useRef(in parent), ref should point to this child component
 const Modal = forwardRef((props, ref) => {
-
   const [isToggled, setIsToggled] = useState(false);
 
   const toggleOverlayHandler = () => {
@@ -26,7 +26,7 @@ const Modal = forwardRef((props, ref) => {
     return () => (document.body.style.overflow = "unset");
   }, [isToggled]);
 
-  return (
+  return ReactDOM.createPortal(
     <section className={isToggled ? "modal" : "modal modal--hidden"}>
       <div className="modal__toggle">
         <button className="modal__toggle-btn" onClick={props.onClick}>
@@ -34,7 +34,8 @@ const Modal = forwardRef((props, ref) => {
         </button>
       </div>
       <div className="modal__content">{props.children}</div>
-    </section>
+    </section>,
+    document.getElementById("modal-root")
   );
 });
 
