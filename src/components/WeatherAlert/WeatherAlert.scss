@@ -41,3 +41,11 @@
     font-size: 1.6rem;
   }
 }
+
+@media screen and (max-width: 25em) {
+  .alert {
+    h2 {
+      font-size: 1.8rem;
+    }
+  }
+}
