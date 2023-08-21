@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import fallBackImg from '../assets/Img/Landing.jpg';
 
-const useWeatherData = (locationQuery) => {
+const useWeatherData = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [queryLocation, setQueryLocation] = useState(null);
   const [error, setError] = useState({
     hasError: false,
     errorMsg: null,
@@ -12,16 +13,56 @@ const useWeatherData = (locationQuery) => {
   // API keys
   const {REACT_APP_VISUAL_CROSSING_KEY} = process.env;
   const {REACT_APP_UNSPLASH_KEY} = process.env;
+  const {REACT_APP_GEOAPIFY_KEY} = process.env;
+
   // Urls
-  const weatherUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/?location=${locationQuery}&key=${REACT_APP_VISUAL_CROSSING_KEY}&contentType=json&unitGroup=metric`;
-  const unsplashUrl = `https://api.unsplash.com/search/photos/?query=${locationQuery}&orientation=landscape&client_id=${REACT_APP_UNSPLASH_KEY}`
+  const weatherUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/?location=${queryLocation}&key=${REACT_APP_VISUAL_CROSSING_KEY}&contentType=json&unitGroup=metric`;
+  const unsplashUrl = `https://api.unsplash.com/search/photos/?query=${queryLocation}&orientation=landscape&client_id=${REACT_APP_UNSPLASH_KEY}`
+  
   // Symbols
   const degreeSymbol = "\u00B0";
 
-  useEffect(() => {
+  // Fetch query location
+  const fetchQueryHandler = (e, query) => {
+    e.preventDefault();
+    setQueryLocation(query);
+  };
 
+  // Get location query via geolocation
+  const geoReverse = async (lat, long) => {
+    const res = await fetch(`https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${long}&format=json&apiKey=${REACT_APP_GEOAPIFY_KEY}`);
+    const data = await res.json();
+    console.log(data)
+    return data;
+  };
+
+  const geoPositionHandler = () => {
+    navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+  }
+
+  const geoSuccess = async (postion) => {
+    try {
+      setLoading(true);
+      const coords = postion.coords;
+      const lat = coords.latitude;
+      const long = coords.longitude;
+      const geoReverseLocation = await geoReverse(lat, long);
+      setQueryLocation(geoReverseLocation.results[0].city);
+
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const geoError = (err) => {
+    console.log(`${err.message}`);
+    setError({ hasError: true, errorMsg: "Geo location failed please try again or input your location"});
+  };
+
+  useEffect(() => {
     const controller = new AbortController();
     const signal = controller.signal;
+    
     // Convert moonphase values
     const getMoonPhase = (value) => {
       if (value === 0) return "New Moon";
@@ -133,6 +174,7 @@ const useWeatherData = (locationQuery) => {
         }
                
       } catch (err) {
+        console.log(err)
         setError({
           hasError: true,
           errorMsg: err.message,
@@ -144,8 +186,8 @@ const useWeatherData = (locationQuery) => {
     };
 
     // Only fetch when locationQuery changes
-    if (locationQuery) {
-      console.log(locationQuery);
+    if (queryLocation) {
+      console.log(queryLocation);
       storeDataHandler(weatherUrl, unsplashUrl);
     } else {
       return;
@@ -156,9 +198,9 @@ const useWeatherData = (locationQuery) => {
       controller.abort();
     }
 
-  }, [locationQuery])
+  }, [queryLocation])
   
-  return {data, loading, error};
+  return { data, loading, error, geoPositionHandler, fetchQueryHandler};
 }
 
 export default useWeatherData;
