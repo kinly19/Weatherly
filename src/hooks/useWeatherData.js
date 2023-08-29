@@ -91,6 +91,12 @@ const useWeatherData = () => {
     const storeDataHandler = async (url1, url2) => {
       try {
         setLoading(true);
+        // Clear Errors
+        setError({
+           hasError: false,
+           errorMsg: null,
+        });
+
         // Fetch both apis
         const [weatherData, imageData] = await Promise.allSettled([fetchJsonHandler(url1), fetchJsonHandler(url2)]);
         
@@ -174,7 +180,6 @@ const useWeatherData = () => {
         }
                
       } catch (err) {
-        console.log(err)
         setError({
           hasError: true,
           errorMsg: err.message,
@@ -189,8 +194,6 @@ const useWeatherData = () => {
     if (queryLocation) {
       console.log(queryLocation);
       storeDataHandler(weatherUrl, unsplashUrl);
-    } else {
-      return;
     }
 
     // Clean up
