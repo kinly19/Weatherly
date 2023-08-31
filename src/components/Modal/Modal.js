@@ -6,6 +6,7 @@ import './Modal.scss';
 // ForwardsRef allows us to tell react when calling useRef(in parent), ref should point to this child component
 const Modal = forwardRef((props, ref) => {
   const [isToggled, setIsToggled] = useState(false);
+  const toggleOnError = props.toggleOnError || null;
 
   const toggleOverlayHandler = () => {
     setIsToggled(!isToggled);
@@ -25,6 +26,11 @@ const Modal = forwardRef((props, ref) => {
     if (isToggled) document.body.style.overflow = "hidden";
     return () => (document.body.style.overflow = "unset");
   }, [isToggled]);
+
+  // Toggle Modal on error
+  useEffect(() => {
+    if (toggleOnError) toggleOverlayHandler();
+  }, [toggleOnError]);
 
   return ReactDOM.createPortal(
     <section className={isToggled ? "modal" : "modal modal--hidden"}>
