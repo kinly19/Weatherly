@@ -1,6 +1,12 @@
-# Getting Started with Create React App
+# Weatherly
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Weatherly Web application created with React.
+
+### Live Site
+https://weatherly-23.web.app
+## About
+
+Weatherly is a simple and easy-to-use weather app built with React and Powered by Visual Crossing Weather. Get real-time weather updates for any city, including temperature, humidity, wind speed, and more.
 
 ## Available Scripts
 
