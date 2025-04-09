@@ -25,7 +25,7 @@ const SearchBar = (props) => {
     >
       <input
         type="text"
-        placeholder="Search Location"
+        placeholder={!props.loading ? "Search Location" : "Please Wait..."}
         className="searchBar__input"
         required
         onChange={storeInputHander}
