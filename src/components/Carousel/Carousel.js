@@ -10,15 +10,15 @@ const Carousel = (props) => {
 
   // Carousel slides to show per view
   let slidesToShow = 4;
-  if (viewportWidth <= 1600) {
+  if (viewportWidth <= 1650) {
     slidesToShow = 3;
   }
 
-  if (viewportWidth <= 1200) {
+  if (viewportWidth <= 1300) {
     slidesToShow = 2;
   }
 
-  if (viewportWidth <= 750) {
+  if (viewportWidth <= 800) {
     slidesToShow = 1;
   }
 
