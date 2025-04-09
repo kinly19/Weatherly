@@ -12,12 +12,12 @@ const IconTile = (props) => {
 
   return (
     props.iconSrc && (
-      <div className="icon-tile" style={containerHeight}>
+      <span className="icon-tile" style={containerHeight}>
         <img
           src={require(`../../../assets/Svg/${iconSource}.svg`)}
           alt="iconset"
         />
-      </div>
+      </span>
     )
   );
 };
