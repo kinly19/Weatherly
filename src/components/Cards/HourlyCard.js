@@ -1,4 +1,3 @@
-import useDate from '../../hooks/useDate';
 import StatTile from '../Tiles/StatTile/StatTile';
 import './HourlyCard.scss'; 
 
