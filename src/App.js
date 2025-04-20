@@ -7,14 +7,9 @@ import './App.scss';
 
 function App() {
   const {data, error, loading, geoPositionHandler, fetchQueryHandler} = useWeatherData();
-  const isInitialRender = useRef(true);
  
   useEffect(() => {
-    // Stop first useEffect render
-    if (isInitialRender.current) {
-      isInitialRender.current = false;
-      return;
-    }
+    // Run once on render
     geoPositionHandler();
   },[]);
 
